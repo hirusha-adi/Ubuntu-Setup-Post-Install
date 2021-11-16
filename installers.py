@@ -1,15 +1,22 @@
 import os
 
 
-def update():
-    os.system("sudo apt update -y")
+def update_system():
+    os.system("sudo apt update")
+    os.system("sudo apt upgrade -y")
 
 
-def sublime_text():
-    os.system(
-        """wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -""")
-    os.system("""sudo apt-get install apt-transport-https""")
-    os.system("""echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list""")
+def sublime_text(mode: str = "snap"):
+    if mode == "apt":
+        os.system(
+            """wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -""")
+        os.system("""sudo apt-get install apt-transport-https""")
+        os.system(
+            """echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list""")
+        os.system("sudo apt update -y")
+        os.system("sudo apt install sublime-text -y")
+    else:
+        os.system("sudo snap install sublime-text --classic")
 
 
 def snapd():
@@ -41,7 +48,7 @@ def vscode(itype: str = "apt"):
             """sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'""")
         os.system("rm -f packages.microsoft.gpg")
         os.system("sudo apt install apt-transport-https")
-        update()
+        os.system("sudo apt update")
         os.system("sudo apt install code")
 
     elif itype.lower() == "snap":
@@ -296,6 +303,142 @@ def yakyak():
 def signal():
     os.system("sudo snap install signal-desktop")
 
+
 def chromium():
     os.system("sudo snap install chromium")
-    
+
+
+def figlet():
+    os.system("sudo apt-get install -y figlet")
+
+
+def RUN_PROGRAM():
+    def show_logo():
+        print("""
+     ____       _     _             
+    |  _ \  ___| |__ (_) __ _ _ __  
+    | | | |/ _ \ '_ \| |/ _` | '_ \ 
+    | |_| |  __/ |_) | | (_| | | | |
+    |____/ \___|_.__/|_|\__,_|_| |_|
+             Installer v1.0
+        """)
+    os.system("clear")
+    show_logo()
+
+    update_system()
+    snapd()
+
+    instpe = input(
+        "? What do you want to be the default to be? Apt or Snap: ")
+    if instpe.lower().startswith("s"):
+        dlpkgmgr = "snap"
+    else:
+        dlpkgmgr = "apt"
+
+    print("+ You will be given the package name and a what that package is about.\n+ Enter 'y' to install and any other letter to skip it and continue.")
+
+    msublime_text = input("? Sublime Text (Text Editor): ")
+    if msublime_text.lower().startswith("y"):
+        sublime_text(mode=dlpkgmgr)
+    else:
+        print("- Skipping: Sublime Text")
+
+    msnap_store = input("? Snap Store (Software Center): ")
+    if msnap_store.lower().startswith("y"):
+        snap_store(mode=dlpkgmgr)
+    else:
+        print("- Skipping: Snap Store")
+
+    mvlc = input("? VLC (Media Player): ")
+    if mvlc.lower().startswith("y"):
+        vlc()
+    else:
+        print("- Skipping: VLC")
+
+    mvscode = input("? Visual Studio Code (Development): ")
+    if mvscode.lower().startswith("y"):
+        vscode(itype=dlpkgmgr)
+    else:
+        print("- Skipping: Visual Studio Code")
+
+    mpip3 = input("? Python3 Pip (Development): ")
+    if mpip3.lower().startswith("y"):
+        pip3()
+    else:
+        print("- Skipping: Python3 Pip")
+
+    mpip2 = input("? Python2 Pip (Development): ")
+    if mpip2.lower().startswith("y"):
+        pip3()
+    else:
+        print("- Skipping: Python2 Pip")
+
+    mjava_development_kit = input("? Java Development Kit (Development): ")
+    if mjava_development_kit.lower().startswith("y"):
+        pip()
+    else:
+        print("- Skipping: Java Development Kit")
+
+    mspotify = input("? Spotify (Media Player): ")
+    if mspotify.lower().startswith("y"):
+        spotify(itype=dlpkgmgr)
+    else:
+        print("- Skipping: Spotify")
+
+    meclipse = input("? Eclipse (Development): ")
+    if meclipse.lower().startswith("y"):
+        eclipse()
+    else:
+        print("- Skipping: Eclipse")
+
+    mpycharmc = input("? PyCharm Community Edition (Development): ")
+    if mpycharmc.lower().startswith("y"):
+        pycharm(dtype="community")
+    else:
+        print("- Skipping: PyCharm Community Edition")
+
+    mpycharmp = input("? PyCharm Professional Edition (Development): ")
+    if mpycharmp.lower().startswith("y"):
+        pycharm(dtype="professional")
+    else:
+        print("- Skipping: PyCharm Professional Edition")
+
+    mpycharme = input("? PyCharm Educational Edition (Development): ")
+    if mpycharme.lower().startswith("y"):
+        pycharm(dtype="educational")
+    else:
+        print("- Skipping: PyCharm Educational Edition")
+
+    mhtop = input("? Htop (System Monitor): ")
+    if mhtop.lower().startswith("y"):
+        htop(itype=dlpkgmgr)
+    else:
+        print("- Skipping: Htop")
+
+    mshotcut = input("? Shot Cut (Video Editor): ")
+    if mshotcut.lower().startswith("y"):
+        shotcut(itype=dlpkgmgr)
+    else:
+        print("- Skipping: Shot Cut")
+
+    mffmpeg = input("? FFMPEG (Media Tool): ")
+    if mffmpeg.lower().startswith("y"):
+        ffmpeg(itype=dlpkgmgr)
+    else:
+        print("- Skipping: FFMPEG")
+
+    mbitwarden = input("? BitWarden (Password Manager): ")
+    if mbitwarden.lower().startswith("y"):
+        bitwarden()
+    else:
+        print("- Skipping: BitWarden")
+
+    mnmap = input("? NMap (Network Scanner): ")
+    if mnmap.lower().startswith("y"):
+        nmap(itype=dlpkgmgr)
+    else:
+        print("- Skipping: NMap")
+
+
+if __name__ == "__main__":
+    RUN_PROGRAM()
