@@ -164,7 +164,7 @@ def minecraft(itype: str = "snap"):
     else:
         os.system("wget https://launcher.mojang.com/download/Minecraft.deb")
         os.system("sudo dpkg -i Minecraft.deb")
-        os.system("sudo apt -f install")
+        os.system("sudo apt -f install -y")  # im not sure if it should be here
 
 
 def teams():
@@ -173,10 +173,6 @@ def teams():
 
 def zoom():
     os.system("sudo snap install zoom-client")
-
-
-def only_office():
-    os.system("sudo snap install onlyoffice-desktopeditors")
 
 
 def notion():
@@ -219,10 +215,6 @@ def audacity():
     os.system("sudo snap install audacity")
 
 
-def clementine():
-    os.system("sudo snap install clementine")
-
-
 def google_play_music_desktop_player():
     os.system("sudo snap install google-play-music-desktop-player")
 
@@ -248,7 +240,7 @@ def virtualbox(mode: str = "old"):
             "wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -")
         os.system(
             'sudo add-apt-repository "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib"')
-        os.system("sudo apt update && sudo apt install virtualbox-6.0")
+        os.system("sudo apt update && sudo apt install virtualbox")
 
 
 def whatsapp():
@@ -438,6 +430,228 @@ def RUN_PROGRAM():
         nmap(itype=dlpkgmgr)
     else:
         print("- Skipping: NMap")
+
+    mclementine = input("? Clementine (Media Player): ")
+    if mclementine.lower().startswith("y"):
+        clementine(itype=dlpkgmgr)
+    else:
+        print("- Skipping: Clementine")
+
+    monly_office = input("? Only Office (Office Suite): ")
+    if monly_office.lower().startswith("y"):
+        only_office()
+    else:
+        print("- Skipping: Only Office")
+
+    myoutube_dl = input("? YouTube-dl (Media Downloader): ")
+    if myoutube_dl.lower().startswith("y"):
+        youtube_dl(itype="snap")
+    else:
+        print("- Skipping: Only Office")
+
+    mywget = input("? Wget (CLI-Utitlity): ")
+    if mywget.lower().startswith("y"):
+        wget()
+    else:
+        print("- Skipping: Wget")
+
+    mblender = input("? Blender (Multimedia Creating Suite): ")
+    if mblender.lower().startswith("y"):
+        blender()
+    else:
+        print("- Skipping: Blender")
+
+    mgoogle_chrome = input("? Minecraft Launcher (Game Launcher): ")
+    if mgoogle_chrome.lower().startswith("y"):
+        minecraft(itype=dlpkgmgr)
+    else:
+        print("- Skipping: Minecraft Launcher")
+
+    mminecraft = input("? Google Chrome (Web Browser): ")
+    if mminecraft.lower().startswith("y"):
+        google_chrome()
+    else:
+        print("- Skipping: Google Chrome")
+
+    mteams = input("? Microsoft Teams (Communication Platform): ")
+    if mteams.lower().startswith("y"):
+        teams()
+    else:
+        print("- Skipping: Microsoft Teams")
+
+    mzoom = input("? Zoom (Communication Platform): ")
+    if mzoom.lower().startswith("y"):
+        zoom()
+    else:
+        print("- Skipping: Zoom")
+
+    mnotion = input("? Notion (Notetaking Software): ")
+    if mnotion.lower().startswith("y"):
+        notion()
+    else:
+        print("- Skipping: Notion")
+
+    mskype = input("? Skype (Communication Platform): ")
+    if mskype.lower().startswith("y"):
+        skype()
+    else:
+        print("- Skipping: Skype")
+
+    mslack = input("? Slack (Communication Platform): ")
+    if mslack.lower().startswith("y"):
+        slack()
+    else:
+        print("- Skipping: Slack")
+
+    mskonversation = input("? Konversation (IRC Client): ")
+    if mskonversation.lower().startswith("y"):
+        konversation()
+    else:
+        print("- Skipping: Konversation")
+
+    mbrave = input("? Brave (Web Browser): ")
+    if mbrave.lower().startswith("y"):
+        brave()
+    else:
+        print("- Skipping: Brave")
+
+    mhandbrake_jz = input("? Handbrake (Media Converter): ")
+    if mhandbrake_jz.lower().startswith("y"):
+        handbrake_jz()
+    else:
+        print("- Skipping: Handbrake")
+
+    minstagraph = input("? Instagraph (Desktop Instagram Client): ")
+    if minstagraph.lower().startswith("y"):
+        instagraph()
+    else:
+        print("- Skipping: Instagraph")
+
+    mdocker = input("? Docker (Development): ")
+    if mdocker.lower().startswith("y"):
+        docker()
+    else:
+        print("- Skipping: Docker")
+
+    mtor_middle_relay = input("? Tor Middle Relay (Tor): ")
+    if mtor_middle_relay.lower().startswith("y"):
+        konversation()
+    else:
+        print("- Skipping: Tor Middle Relay")
+
+    maudacity = input("? Audacity (Audio Editor): ")
+    if maudacity.lower().startswith("y"):
+        audacity()
+    else:
+        print("- Skipping: Audacity")
+
+    mgoogle_play_music_desktop_player = input(
+        "? Google Play Music Desktop Player (Media Players): ")
+    if mgoogle_play_music_desktop_player.lower().startswith("y"):
+        konversation()
+    else:
+        print("- Skipping: Google Play Music Desktop Player")
+
+    mqbittorrent = input("? Qbittorrent (Torrent Client): ")
+    if mqbittorrent.lower().startswith("y"):
+        qbittorrent()
+    else:
+        print("- Skipping: Qbittorrent")
+
+    mgithub_desktop = input("? GitHub Deskop (Development): ")
+    if mgithub_desktop.lower().startswith("y"):
+        github_desktop()
+    else:
+        print("- Skipping: GitHub Deskop")
+
+    mobs_studio = input("? OBS Studio (Screencasting & Streaming app): ")
+    if mobs_studio.lower().startswith("y"):
+        obs_studio()
+    else:
+        print("- Skipping: OBS Studio")
+
+    mvirtualbox = input("? VirtualBox (Hypervisor): ")
+    if mvirtualbox.lower().startswith("y"):
+        mvirtualbox1 = input(
+            "? VirtualBox (Hypervisor) - Use Apt or get the Latest version: ")
+        if mvirtualbox1.lower().startswith("a"):
+            virtualbox(mode="old")
+        else:
+            virtualbox(mode="latest")
+    else:
+        print("- Skipping: VirtualBox")
+
+    mwhatsapp = input("? WhatsApp (Messaging and VOIP): ")
+    if mwhatsapp.lower().startswith("y"):
+        audacity()
+    else:
+        print("- Skipping: WhatsApp")
+
+    mdiscord = input("? Discord (Messaging and VOIP): ")
+    if mdiscord.lower().startswith("y"):
+        discord()
+    else:
+        print("- Skipping: Discord")
+
+    mflameshot = input("? Flameshot (Screenshot Tool): ")
+    if mflameshot.lower().startswith("y"):
+        flameshot()
+    else:
+        print("- Skipping: Flameshot")
+
+    mspectacle = input("? Spectacle (Screenshot Tool): ")
+    if mspectacle.lower().startswith("y"):
+        spectacle()
+    else:
+        print("- Skipping: Spectacle")
+
+    manydesk = input("? Anydesk (Remote Desktop Application): ")
+    if manydesk.lower().startswith("y"):
+        anydesk()
+    else:
+        print("- Skipping: Anydesk")
+
+    mteamviewer = input("? Teamviewer (Remote Desktop Application): ")
+    if mteamviewer.lower().startswith("y"):
+        teamviewer()
+    else:
+        print("- Skipping: Teamviewer")
+
+    msteam = input("? Steam (Game Launcher): ")
+    if msteam.lower().startswith("y"):
+        teams()
+    else:
+        print("- Skipping: Steam")
+
+    mtelegram = input("? Telegram (Messaging and VOIP): ")
+    if mtelegram.lower().startswith("y"):
+        telegram()
+    else:
+        print("- Skipping: Telegram")
+
+    mtor_browser = input("? Tor Broswer (Web Browser): ")
+    if mtor_browser.lower().startswith("y"):
+        tor_browser()
+    else:
+        print("- Skipping: Tor Broswer")
+
+    myakyak = input("? YakYak (Google Hangouts Desktop Client): ")
+    if myakyak.lower().startswith("y"):
+        yakyak()
+    else:
+        print("- Skipping: YakYak")
+
+    msignal = input("? Signal (Messaging and VOIP): ")
+    if msignal.lower().startswith("y"):
+        signal()
+    else:
+        print("- Skipping: Signal")
+
+    mfiglet = input("? Figlet (CLI-Utitlity): ")
+    if mfiglet.lower().startswith("y"):
+        figlet()
+    else:
+        print("- Skipping: Figlet")
 
 
 if __name__ == "__main__":
