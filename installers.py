@@ -158,3 +158,144 @@ def minecraft(itype: str = "snap"):
         os.system("wget https://launcher.mojang.com/download/Minecraft.deb")
         os.system("sudo dpkg -i Minecraft.deb")
         os.system("sudo apt -f install")
+
+
+def teams():
+    os.system("sudo snap install teams")
+
+
+def zoom():
+    os.system("sudo snap install zoom-client")
+
+
+def only_office():
+    os.system("sudo snap install onlyoffice-desktopeditors")
+
+
+def notion():
+    os.system("sudo snap install notion-snap")
+
+
+def skype():
+    os.system("sudo snap install skype")
+
+
+def konversation():
+    os.system("sudo snap install konversation")
+
+
+def slack():
+    os.system("sudo snap install slack --classic")
+
+
+def brave():
+    os.system("sudo snap install brave")
+
+
+def handbrake_jz():
+    os.system("sudo snap install handbrake-jz")
+
+
+def instagraph():
+    os.system("sudo snap install instagraph")
+
+
+def docker():
+    os.system("sudo snap install docker")
+
+
+def tor_middle_relay():
+    os.system("sudo snap install tor-middle-relay")
+
+
+def audacity():
+    os.system("sudo snap install audacity")
+
+
+def clementine():
+    os.system("sudo snap install clementine")
+
+
+def google_play_music_desktop_player():
+    os.system("sudo snap install google-play-music-desktop-player")
+
+
+def qbittorrent():
+    os.system("sudo snap install qbittorrent-arnatious")
+
+
+def github_desktop():
+    os.system("sudo wget https://github.com/shiftkey/desktop/releases/download/release-2.9.3-linux3/GitHubDesktop-linux-2.9.3-linux3.deb")
+    os.system("sudo gdebi GitHubDesktop-linux-2.9.3-linux3.deb")
+
+
+def obs_studio():
+    os.system("sudo snap install obs-studio")
+
+
+def virtualbox(mode: str = "old"):
+    if mode == "old":
+        os.system("sudo apt install virtualbox")
+    else:
+        os.system(
+            "wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -")
+        os.system(
+            'sudo add-apt-repository "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib"')
+        os.system("sudo apt update && sudo apt install virtualbox-6.0")
+
+
+def whatsapp():
+    os.system("sudo snap install whatsapp-for-linux")
+
+
+def discord():
+    os.system("sudo snap install discord")
+
+
+def flameshot():
+    os.system("sudo snap install flameshot")
+
+
+def spectacle():
+    os.system("sudo snap install spectacle")
+
+
+def anydesk():
+    os.system(
+        "wget -qO - https://keys.anydesk.com/repos/DEB-GPG-KEY | sudo apt-key add -")
+    os.system(
+        'echo "deb http://deb.anydesk.com/ all main" | sudo tee /etc/apt/sources.list.d/anydesk-stable.list')
+    os.system("sudo apt update")
+    os.system("sudo apt install anydesk")
+
+
+def teamviewer():
+    os.system(
+        'wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb')
+    os.system('sudo dpkg -i ./teamviewer_amd64.deb')
+
+
+def steam():
+    os.system("sudo apt install steam-installer")
+
+
+def telegram():
+    os.system("sudo snap install telegram-desktop")
+
+
+def tor_browser():
+    os.system("sudo add-apt-repository ppa:micahflee/ppa")
+    os.system("sudo apt update")
+    os.system("sudo apt install torbrowser-launcher")
+
+
+def yakyak():
+    os.system("sudo snap install yakyak")
+
+
+def signal():
+    os.system("sudo snap install signal-desktop")
+
+def chromium():
+    os.system("sudo snap install chromium")
+    
