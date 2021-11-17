@@ -319,6 +319,7 @@ def RUN_PROGRAM():
 
     update_system()
     snapd()
+    wget()
 
     instpe = input(
         "? What do you want to be the default to be? Apt or Snap: ")
@@ -448,12 +449,6 @@ def RUN_PROGRAM():
         youtube_dl(itype="snap")
     else:
         print("- Skipping: Only Office")
-
-    mywget = input("? Wget (CLI-Utitlity): ")
-    if mywget.lower().startswith("y"):
-        wget()
-    else:
-        print("- Skipping: Wget")
 
     mblender = input("? Blender (Multimedia Creating Suite): ")
     if mblender.lower().startswith("y"):
